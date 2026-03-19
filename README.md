@@ -26,3 +26,18 @@ Before you begin, ensure you have the following:
 - Git - [Download & Install Git](https://git-scm.com/downloads)
 
 Happy Coding!  🎉
+
+
+## Configuration
+
+Set environment variables (optional):
+
+- `SECRET_KEY` (default: `dev-secret-change-me`)
+- `DATABASE_URL` (default: `sqlite:///planventure.db`)
+- `FLASK_DEBUG` (default: `true`)
+
+## Run
+
+```bash
+pip install -r requirements.txt
+python -m flask run --debug
