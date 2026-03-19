@@ -10,3 +10,5 @@ class Config:
         f"sqlite:///{os.path.join(BASE_DIR, 'planventure.db')}",
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    JWT_ALGORITHM = "HS256"
+    JWT_EXPIRES_MINUTES = 60

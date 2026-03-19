@@ -1,6 +1,7 @@
 from datetime import datetime, timezone
 
 from extensions import db
+from utils.security import hash_password, verify_password
 
 
 class User(db.Model):
@@ -17,7 +18,6 @@ class User(db.Model):
         lazy=True,
     )
 
-
     created_at = db.Column(
         db.DateTime(timezone=True),
         nullable=False,
@@ -32,3 +32,9 @@ class User(db.Model):
 
     def __repr__(self) -> str:
         return f"<User id={self.id} email={self.email}>"
+
+    def set_password(self, raw_password: str) -> None:
+        self.password_hash = hash_password(raw_password)
+
+    def check_password(self, raw_password: str) -> bool:
+        return verify_password(raw_password, self.password_hash)
